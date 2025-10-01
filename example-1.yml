@@ -1,0 +1,47 @@
+---
+# This is a comment in YAML
+# Basic key-value pairs
+name: John Doe
+age: 30
+isStudent: false
+height: 1.75 # Floating-point number
+
+# Lists (sequences)
+skills:
+  - Python
+  - JavaScript
+  - YAML
+  - Docker
+
+# Nested dictionaries (mappings)
+address:
+  street: 123 Main St
+  city: Anytown
+  state: CA
+  zipCode: '90210' # String value even if it looks like a number
+
+# Multiline string using literal block style (preserves newlines)
+description: |
+  This is a multiline
+  string example.
+  Each line break in the YAML
+  will be preserved in the output.
+
+# Multiline string using folded block style (folds newlines into spaces)
+quote: >
+  "The only way to do great work
+  is to love what you do."
+  - Steve Jobs
+
+# Another nested structure with a list of dictionaries
+projects:
+  - title: Website Redesign
+    status: In Progress
+    team:
+      - Alice
+      - Bob
+  - title: Mobile App Development
+    status: Completed
+    team:
+      - Charlie
+      - David
