@@ -1,5 +1,5 @@
 - name: Install and Configure Nginx
-  hosts: webservers
+  hosts: frontend
   become: yes # Required for installing packages and managing services
 
   tasks:
