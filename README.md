@@ -12,3 +12,5 @@
 -  **nginx_install.yml**: The name of your **playbook file**.
 
 -  **--ask-become-pass**: Prompts for the sudo password on the target host(s) if required. If you are using SSH keys with sudo configured for passwordless execution, you might not need this flag.
+
+- **You can check your yml status : https://www.yamllint.com/**
