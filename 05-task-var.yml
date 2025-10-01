@@ -6,7 +6,7 @@
     DURATION : 10 HRS
     MENTOR : USER
 
-  -tasks:
+  tasks:
     - name : print the course  info 
       vars:
         COURSE : Ansible
