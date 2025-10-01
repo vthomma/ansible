@@ -1,3 +1,6 @@
+
+**To run the ansible script**
+
 # ansible-playbook -i inventory.ini nginx_install.yml --ask-become-pass
 
 
