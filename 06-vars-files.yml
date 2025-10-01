@@ -2,8 +2,9 @@
   hosts : local 
   connection: local
   var_files : 
-   - course.yml
+  - course.yml
   tasks:
-    - name : print the course  info 
-      ansible.builtin.debug:
-        msg: "COURSE info COURSE : {{ COURSE }},DURATION : {{ DURATION }}, Trainer : {{ Trainer }}"
+  - name : print the course  info 
+    ansible.builtin.debug:
+      msg: "COURSE info COURSE : {{ COURSE }},DURATION : {{ DURATION }}, Trainer : {{ Trainer }}"
+
