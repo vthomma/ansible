@@ -1,6 +1,6 @@
 - name : variables from files
   hosts : local 
-  connect : local
+  connection: local
   var_files : 
    - course.yml
   tasks:
