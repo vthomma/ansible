@@ -1,0 +1,15 @@
+- name: Install and Configure Nginx
+  hosts: webservers
+  become: yes # Required for installing packages and managing services
+
+  tasks:
+    - name: Install Nginx
+      ansible.builtin.package:
+        name: nginx
+        state: present
+
+    - name: Ensure Nginx service is running and enabled
+      ansible.builtin.service:
+        name: nginx
+        state: started
+        enabled: yes
