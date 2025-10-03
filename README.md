@@ -1,7 +1,7 @@
 
 **To run the ansible script**
 
-# ansible-playbook -i inventory.ini nginx_install.yml --ask-become-pass
+**ansible-playbook -i inventory.ini**  nginx_install.yml --ask-become-pass
 
 
 -   **Explanation of interactions:** 
