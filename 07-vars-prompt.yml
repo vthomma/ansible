@@ -1,0 +1,15 @@
+- name : variables from propmt
+  hosts : local
+  connection : local
+  vars_prompt :
+    - name : username
+      propmt : Please enter a your username
+      private : false # Set to 'yes' for sensitive input like passwords
+    - name  : password 
+      propmt : Please enter your password 
+      private : true  #Hides input for security
+  tasks:
+    - name : print info
+      ansible.builtin.debug:
+        msg: "Hello, username is {{ username }}, password is {{ password }}"
+          
