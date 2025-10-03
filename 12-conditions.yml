@@ -2,7 +2,7 @@
   connection : local
   hosts : local 
   vars :
-    number : 12
+    number : 9
   tasks : 
   - name : check number is less than 10 or not
     ansible.builtin.debug:
