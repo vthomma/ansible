@@ -1,5 +1,5 @@
 - name : conditons
-  conditons : local
+  connection : local
   hosts : local 
   vars :
     numebr : 12
