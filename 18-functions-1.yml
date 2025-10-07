@@ -1,0 +1,48 @@
+- name : functions
+  hosts: local
+  connection : local
+  vars:
+    technologies: DevOps, Linux, Shell, Ansible # string
+    name: "User M"
+    gmail: Info@GMAIL.COM
+    
+    
+    tags :
+      Application : payment
+      environment : dev 
+
+    # List
+    listTags:
+    - key: Application
+      value: payment
+    - key: Environment
+      value: dev  
+
+
+  tasks:
+  - name : default variable 
+    ansible.builtin.debug:
+      msg : "Hello, I am {{ name | default('Ramesh') }}" # if no name  provided it will defaulty takes ramesh name 
+
+
+  - name : convert strign to list # string to list conversion
+    ansible.builtin.debug:
+      msg : "Technologies {{ technologies | split (',')}} "
+
+  - name : convert  to lower case 
+    ansible.builtin.debug:
+      msg : "{{ gmail | lower }}"  
+
+  - name : convert to upper case 
+    ansible.builtin.debug:
+      msg : "{{ name | upper }}"  
+
+  - name : convert dict to itmes
+    ansible.builtin.debug:
+      msg : "{{ tags | dict2items }}"  
+
+  - name : convert list into maps 
+    ansible.builtin.debug:
+      msg : "{{ listTags | itmes2dict }}"
+
+  

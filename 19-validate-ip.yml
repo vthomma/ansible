@@ -1,0 +1,26 @@
+- name: Validate IP address
+  hosts: localhost
+  gather_facts: false
+
+  vars:
+    test_ip_valid: "192.168.1.1"
+    test_ip_invalid: "256.0.0.1"
+    test_ip_ipv6: "2001:0db8:85a3:0000:0000:8a2e:0370:7334"
+    ipaddress: "19222.168.0.1"
+
+  tasks:
+    - name: Check if '{{ test_ip_valid }}' is a valid IP
+      ansible.builtin.debug:
+        msg: "'{{ test_ip_valid }}' is a valid IP: {{ test_ip_valid | ansible.utils.ipaddr('is_ip') }}"
+
+    - name: Check if '{{ test_ip_invalid }}' is a valid IP
+      ansible.builtin.debug:
+        msg: "'{{ test_ip_invalid }}' is a valid IP: {{ test_ip_invalid | ansible.utils.ipaddr('is_ip') }}"
+
+    - name: Check if '{{ test_ip_ipv6 }}' is a valid IP
+      ansible.builtin.debug:
+        msg: "'{{ test_ip_ipv6 }}' is a valid IP: {{ test_ip_ipv6 | ansible.utils.ipaddr('is_ip') }}"
+
+    - name : show default ip4 adress 
+      ansible.builtin.debug:
+        msg : " The default IPv4 address is  {{ ansible_default_ipv4.address }}"                 

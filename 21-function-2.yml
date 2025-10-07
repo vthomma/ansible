@@ -1,0 +1,46 @@
+- name : functions
+  hosts: local
+  connection : local
+  vars:
+    technologies: DevOps, Linux, Shell, Ansible # string
+
+  tasks:
+  - name: read yaml and take it into variable
+    ansible.builtin.set_fact:
+      student_yml: "{{ lookup('file', 'student.yml') | from_yml }}"
+
+  - name: convert yaml into json
+    ansible.builtin.debug:
+      msg: "json: {{ student_yml | to_json  }}"
+
+  - name: save json to file
+    ansible.builtin.copy:
+      dest: ./stundent-data.json
+      content: "{{ student_yml | to_nice_json  }}"
+
+  - name: grep for root
+    #ansible.builtin.command: cat /etc/passwd | grep root
+    ansible.builtin.shell: cat /etc/passwd | grep root
+    register: command_output
+
+  - name: print the command_output
+    ansible.builtin.debug:
+      msg: "{{ command_output }}"
+
+  - name: redirect the output
+    ansible.builtin.command: ls -ltr > /tmp/output.txt
+    register: redirect_output
+    ignore_errors: true
+
+  - name: print redirect_output
+    ansible.builtin.debug:
+      msg: "{{ redirect_output }}"
+
+  - name: redirect the output using shell
+    ansible.builtin.shell: ls -ltr > /tmp/output.txt
+    register: redirect_output
+
+  - name: print redirect_output shell
+    ansible.builtin.debug:
+      msg: "{{ redirect_output }}"    
+  
